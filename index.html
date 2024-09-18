@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimuladorReinas</title>
+    <title>8Reinas</title>
     <style>
         table,td,tr{
             border:1px solid black;
@@ -30,21 +30,22 @@
         }
     </style>
     <script>
-        contador=0;
+ contador=0;
         function cellclick(celda){
 
            if (window.getComputedStyle(celda).backgroundImage == "none") 
            {
-             {
+            if (contador<8) {
                 celda.style = `
                     background-image:url(./img/reina.png); 
                     background-size:contain; 
                     background-repeat:no-repeat; 
                     background-position:center;`;
+                document.getElementById("contador").innerHTML = `Contador: ${++contador}`;
             }
             } else {
                 celda.style = "background-image:none";
-                
+                document.getElementById("contador").innerHTML = `Contador: ${--contador}`;
             }
         }
     </script>
@@ -133,5 +134,7 @@
         </tr>
 
     </table>
+    <h1><p id="contador"></p>
+    </p></h1>
 </body>
 </html>
